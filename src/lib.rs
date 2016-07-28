@@ -57,8 +57,46 @@ fn test_net_present_value() {
 */
 
 
-//  present_value implementation
+//  Internal Rate of Return (IRR) implementation
 
 
 
-//  present_value implementation
+//  Payback Period (PP) implementation
+
+
+
+
+
+//  Return On Investment (ROI) implementation
+
+
+//  Amortization implementation
+
+
+
+
+//  Profitability Index
+
+
+
+//  Rule of 72 (quick and dirty calculation to estimate when an investment will double: https://en.wikipedia.org/wiki/Rule_of_72
+//  Please note that for consistency sake rate is getting passed as a plain not float and not as a percentage (%)
+pub fn rule_of_72(rate: f64) -> f64 {
+   round(72. / (rate * 100.), 2)
+}
+
+#[test]
+fn test_rule_of_72() {
+    assert_eq!(rule_of_72(0.035), 20.57);
+}
+
+// Rule of 70
+pub fn rule_of_70(rate: f64) -> f64 {
+   round(70. / (rate * 100.), 2)
+}
+
+#[test]
+fn test_rule_of_70() {
+    assert_eq!(rule_of_70(0.035), 20.);
+}
+
