@@ -1,6 +1,6 @@
 [package]
 name = "finance"
-version = "0.1.0"
+version = "0.0.0-beta"
 authors = ["Mohamed Hayibor <mohamedhayibor@gmail.com>"]
 
 publish = false
@@ -13,4 +13,4 @@ license = "GPL-2.0"
 keywords = ["finance", "worth", "financial", "value", "calculations"]
 
 [dependencies]
-round = "0.0.0"
+round = "0.1.0"
