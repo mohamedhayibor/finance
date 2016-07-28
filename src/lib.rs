@@ -100,3 +100,16 @@ fn test_rule_of_70() {
     assert_eq!(rule_of_70(0.035), 20.);
 }
 
+//  Leverage ratio (LR) 
+pub fn leverage_ratio(total_liabilities: f64, total_debts: f64, total_income: f64) -> f64 {
+    round( ((total_liabilities + total_debts) / total_income), 2)
+}
+
+#[test]
+fn test_leverage_ratio() {
+    let test_ratio = leverage_ratio(1000., 2000., 4000.);
+    assert_eq!(test_ratio, 0.75);
+}
+
+//  Weighted Cost of capital (WACC)
+
