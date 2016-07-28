@@ -9,7 +9,8 @@ description = "This crate provides utility functions for the most common operati
 documentation = "https://github.com/mohamedhayibor/finance"
 repository = "https://github.com/mohamedhayibor/finance"
 
-license = "GNU"
+license = "GPL-2.0"
 keywords = ["finance", "worth", "financial", "value", "calculations"]
 
 [dependencies]
+round = "0.0.0"

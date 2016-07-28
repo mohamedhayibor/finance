@@ -1,9 +1,7 @@
 Finance
 -------------
 
-This crate provides utility functions for the most common operations in Finance. Because of Rust borrowing system, all arguments need to be passed by reference as this library has a strong focus on immutability.
-
-You will notice that most are passed by reference and then cloned before performing any calculations. This allows you to use the functions without worrying about issues (borrowing violations).
+This crate provides utility functions for the most common operations in Finance.
 
 ## Usage
 
@@ -29,7 +27,7 @@ finance = "0.0.0"
 12. weighted_cost_of_capital
 13. pmt
 
-> Unless specified the inputs are expected to be floats. Your program will `panic` ifyou pass integers.
+> Unless specified the inputs are expected to be floats. Your program will `panic` if you pass integers.
 
 > Also rates are annualized by default. Input accordingly if calculating in (monthly, semi-annual, daily) terms.
 
@@ -38,6 +36,8 @@ If you are wondering about compounding calculation. I got you [here](https://git
 ## Raison d'etre
 
 Well save yourself some googling or fiddling wiki pages. All formulas have test cases and got battle tested before release. Feel free to send a PR if you feel like a missing formula should be included (preferably open an issue first :sunglasses:)
+
+> Do not worry about the functions taking owernership of anything. As primitives support the copy trait.
 
 ## License
 
