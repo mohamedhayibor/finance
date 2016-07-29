@@ -9,14 +9,28 @@ Include this library with the following:
 [dependencies]
 finance = "0.0.0" // preferrably the latest version on crates.io
 ```
+## Examples
+```rust
+extern crate finance;
+finance::{ present_value, future_value };
+
+fn main() {
+    let test_value = present_value(0.1, 1., 1000.); // 909.09
+
+    let test_value = future_value(0.1, 1., 1000.);  // 1100.00
+    // and so on with the other apis just feed what's expected
+    // particurlarly the exact types
+}
+
+```
 
 ## API 
 
 1. present_value (rate: f64, compounding_periods: f64, future_value: f64) -> f64
 2. future_value (rate: f64, compounding_periods: f64, present_value: f64) -> f64
-3. internal_rate_of_return
+3. net_present_value (
 4. payback period
-5. ROI return_on_investment
+5. ROI return_on_investment (earnings: f64, cf0: f64) -> f64
 6. amortization
 7. discount factor
 8. compound_interest
@@ -29,19 +43,25 @@ finance = "0.0.0" // preferrably the latest version on crates.io
 
 > Unless specified the inputs are expected to be floats. Your program will `panic` if you pass integers.
 
-Also rates are annualized by default. Input accordingly if calculating in (monthly, semi-annual, daily) terms. In another words, if you make sure that your compounding_periods (daily, monthly, annual...) is used with corresponding rates (daily, monthly, annual).
+Input accordingly if calculating in (monthly, semi-annual, daily) terms. In another words, make sure that your compounding_periods (daily, monthly, annual...) is used with corresponding rates (daily, monthly, annual).
 
-> For consistency sake `rate` is getting passed as a plain not float and not as a percentage (%)
+> For consistency sake `rate` is getting passed as a plain float and not as a percentage (%)
 
 If you are wondering about compounding calculation. I got you [here](https://github.com/mohamedhayibor/rust_compound)
 
 ## Raison d'etre
 
-Well save yourself some googling or fiddling wiki pages. All formulas have test cases and got battle tested before release. Feel free to send a PR if you feel like a missing formula should be included (preferably open an issue first :sunglasses:)
+Well save yourself some googling or fiddling wiki pages. All formulas have test cases. Feel free to send a PR if you feel like a missing formula should be included (preferably open an issue first :sunglasses:)
 
 > Do not worry about the functions taking owernership of anything. As primitives support the copy trait.
 
-Also some of the function names can be judged as quiet verbose and it is worthit. Abbreviations that you have no idea, about is the last thing you would want. (There aren't many programmers with a Finance background anyways)
+> In the case an array or vector is being processed be assured that they are getting passed as reference and cloned if there is complex operations that have to be made.
+
+Also some of the function names can be judged as quiet verbose and it is worthit. Abbreviations that you have no idea about is the last thing you would want. (There aren't many programmers with a Finance background anyways)
+
+## Maintenance
+
+For the forseeable future, I plan to actively manage the repos, so I will follow the salesman motto "If you open it, I will close", meaning that I will fix issues in a speedy matter.
 
 ## License
 
