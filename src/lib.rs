@@ -5,7 +5,7 @@
 extern crate round;
 use round::round;
 
-//  present_value implementation
+//  present_value implementation (PV)
 pub fn present_value(rate: f64, compounding_periods: f64, future_value: f64) -> f64 {
     let discount_factor: f64 = 1. + rate;
 
@@ -18,7 +18,7 @@ fn test_present_value() {
     assert_eq!( round(test_value, 2), 909.09);
 }
 
-//  future_value implementation
+//  future_value implementation (FV)
 pub fn future_value(rate: f64, compounding_periods: f64, present_value: f64) -> f64 {
     let compound_factor: f64 = 1. + rate;
 
@@ -54,6 +54,7 @@ fn test_net_present_value() {
     assert_eq!(round(test_npv, 2), 243.43);
 }
 
+// implementing periodic_interest_rate
 pub fn periodic_interest_rate(annual_percentage_rate: f64, number_of_compounding: f64) -> f64 {
     annual_percentage_rate / number_of_compounding
 }
@@ -63,6 +64,17 @@ fn test_periodic_interest_rate() {
     let test_value = periodic_interest_rate(0.10, 4.);
 
     assert_eq!(round(test_value, 3), 0.025);
+}
+
+// implementing HPR > holding period return
+pub fn holding_period_return(profit: f64, cost: f64) -> f64 {
+    profit / cost
+}
+
+#[test]
+fn test_hpr() {
+    let test_value = holding_period_return(5000., 4000.);
+    assert_eq!(test_value, 1.25);
 }
 
 /*  Will implement IRR > later - haven't found the most effective way
