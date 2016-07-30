@@ -1,4 +1,4 @@
-# Finance (NOT FINISHED - COME BACK LATER)
+# Finance
 
 This crate (Rust library) provides utility functions for the most common operations (calculations) in Finance.
 
