@@ -35,7 +35,6 @@ fn test_future_value() {
 //  Here cfs means cash_flows: it can be a slice or vector
 //  cfs[0] being the cash flow at time 0
 //  refer to, if you're not sure how this works: https://en.wikipedia.org/wiki/Net_present_value#Interpretation_as_integral_transform
-
 pub fn net_present_value(rate: f64, cfs: &[f64]) -> f64 {
     let discount_factor = 1. + rate;
     let mut npv: f64 = 0.;
@@ -125,6 +124,19 @@ fn test_roi() {
     assert_eq!(test_value, 0.25);
 }
 
+// implementing interest_rate sometimes called growth rate or discount rate
+pub fn interest_rate(future_value: f64, present_value: f64, number_of_compounding: f64) -> f64 {
+    let holding_period_return = future_value / present_value;
+
+    // recip > takes the inverse of a number
+    holding_period_return.powf( number_of_compounding.recip() ) - 1.
+}
+
+#[test]
+fn test_interest_rate() {
+    let test_value = interest_rate(5000., 4000., 4.);
+    assert_eq!(round(test_value, 4), 0.0574);
+}
 /*
 //  Amortization implementation
 //  Implement later
@@ -203,10 +215,9 @@ fn test_wacc() {
     assert_eq!( round(test_value, 4), 0.0567);
 }
 
-/*
 // PMT (payment): amount of loan to pay assuming a constant interest rate
 // a negative value represent a negative cash flow in Finance, meaning that you have to pay out that particular amount (in another words, money from your pockets, going into someonelse, usually the bank
-
+/*
 pub fn payment(rate: f64, number_of_payments: f64, principal: f64) -> f64 {
     let discount_factor = 1. + rate;
 
