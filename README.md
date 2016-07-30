@@ -1,4 +1,5 @@
-# Finance
+# Finance ![](https://travis-ci.org/mohamedhayibor/finance.svg?branch=master) [![crates.io](https://img.shields.io/crates/v/finance.svg)](https://crates.io/crates/finance)
+
 
 This crate (Rust library) provides utility functions for the most common operations (calculations) in Finance.
 
