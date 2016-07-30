@@ -27,22 +27,22 @@ fn main() {
 
 ```
 
-| API | arguments |
-|-----|--------|
-| present_value | (rate: f64, compounding_periods: f64, future_value: f64) |
-| future_value | (rate: f64, compounding_periods: f64, present_value: f64) |
-| net_present_value | (rate: f64, cfs: &[f64]) |
-| periodic_interest_rate | (annual_percentage_rate: f64, number_of_compounding: f64) |
-| holding_period_return | (profit: f64, cost: f64) |
-| number_of_compounding | (future_value: f64, present_value: f64, rate: f64) |
-| ROI return_on_investment | (earnings: f64, cf0: f64) |
-| interest_rate | (future_value: f64, present_value: f64, number_of_compounding: f64) |
-| rule_of_72 | (rate: f64) |
-| rule_of_70 | (rate: f64) |
-| leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) |
-| weighted_cost_of_capital | (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) |
-| payment | (present_value: f64, number_of_compounding: f64, rate: f64) |
-| effective_annual_rate | (annual_rate: f64, number_of_compounding: f64) |
+| API | arguments | abbr |
+|-----|--------|--------:|
+| present_value | (rate: f64, compounding_periods: f64, future_value: f64) | PV |
+| future_value | (rate: f64, compounding_periods: f64, present_value: f64) | FV |
+| net_present_value | (rate: f64, cfs: &[f64]) | npv |
+| periodic_interest_rate | (annual_percentage_rate: f64, number_of_compounding: f64) | r |
+| holding_period_return | (profit: f64, cost: f64) | HPR |
+| number_of_compounding | (future_value: f64, present_value: f64, rate: f64) | n |
+| ROI return_on_investment | (earnings: f64, cf0: f64) | ROI |
+| interest_rate | (future_value: f64, present_value: f64, number_of_compounding: f64) | r |
+| rule_of_72 | (rate: f64) | ... |
+| rule_of_70 | (rate: f64) | ... |
+| leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) | ... |
+| weighted_cost_of_capital | (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) | WACC |
+| payment | (present_value: f64, number_of_compounding: f64, rate: f64) | PMT |
+| effective_annual_rate | (annual_rate: f64, number_of_compounding: f64) | EAR |
 
 Note that all output are of type `f64`, you are free to choose what degree of rounding is right for your project.
 
