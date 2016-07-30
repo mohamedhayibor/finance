@@ -53,6 +53,17 @@ fn test_net_present_value() {
     assert_eq!(round(test_npv, 2), 243.43);
 }
 
+// payment implementation > PMT in formulas
+pub fn payment(present_value: f64, number_of_compounding: f64, rate: f64) -> f64 {
+    present_value / ( (1. - (1. / (1. + rate).powf(number_of_compounding)) ) / rate )
+}
+
+#[test]
+fn main () {
+    let test_value = payment(190000., 30.0, 0.08);
+    assert_eq!(round(test_value, 2), 16877.21);
+}
+
 // implementing periodic_interest_rate
 pub fn periodic_interest_rate(annual_percentage_rate: f64, number_of_compounding: f64) -> f64 {
     annual_percentage_rate / number_of_compounding
@@ -226,24 +237,6 @@ fn test_wacc() {
     assert_eq!( round(test_value, 4), 0.0567);
 }
 
-// PMT (payment): amount of loan to pay assuming a constant interest rate
-// a negative value represent a negative cash flow in Finance, meaning that you have to pay out that particular amount (in another words, money from your pockets, going into someonelse, usually the bank
-/*
-pub fn payment(rate: f64, number_of_payments: f64, principal: f64) -> f64 {
-    let discount_factor = 1. + rate;
-
-    -principal * rate / ( 1. - discount_factor.powf(-number_of_payments) )
-}
-
-#[test]
-fn test_payment() {
-    // lets consider the case where you are getting a $50,000.00 laon for 30 years at the rate of 5%
-    let test_value = payment(0.05, 360., 50000.00);
-
-    assert_eq!( round(test_value, 2), 3000.);
-}
-
-*/
 /*
 // Compound Annual Growth Rate: CAGR
 pub fn compound_annual_rate(beginning_value: f64, ending_value: f64, number_of_periods: f64) -> f64 {
