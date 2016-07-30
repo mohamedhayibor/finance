@@ -237,6 +237,17 @@ fn test_wacc() {
     assert_eq!( round(test_value, 4), 0.0567);
 }
 
+// implementing effective_annual_rate > EAR
+pub fn effective_annual_rate(annual_rate: f64, number_of_compounding: f64) -> f64 {
+    (1. + (annual_rate / number_of_compounding)).powf(number_of_compounding) - 1. 
+}
+
+#[test]
+fn test_effective_annual_rate () {
+    let test = effective_annual_rate(0.05, 12.);
+    assert_eq!(round(test, 4), 0.0512);
+}
+
 /*
 // Compound Annual Growth Rate: CAGR
 pub fn compound_annual_rate(beginning_value: f64, ending_value: f64, number_of_periods: f64) -> f64 {
