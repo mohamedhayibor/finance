@@ -19,9 +19,9 @@ use round::round;
 use finance::{ present_value, future_value };
 
 fn main() {
-    let test_value = round(present_value(0.1, 1., 1000.), 2); // 909.09
+    let test_1 = round(present_value(0.1, 1., 1000.), 2); // 909.09
 
-    let test_value = round(future_value(0.1, 1., 1000.), 2);  // 1100.00
+    let test_2 = round(future_value(0.1, 1., 1000.), 2);  // 1100.00
     // and so on with the other apis just feed what's expected
     // particularly the exact types
 }
