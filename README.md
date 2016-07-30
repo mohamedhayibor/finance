@@ -41,6 +41,8 @@ fn main() {
 | rule_of_70 | (rate: f64) |
 | leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) |
 | weighted_cost_of_capital | (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) |
+| payment | (present_value: f64, number_of_compounding: f64, rate: f64) |
+| effective_annual_rate | (annual_rate: f64, number_of_compounding: f64) |
 
 Note that all output are of type `f64`, you are free to choose what degree of rounding is right for your project.
 
