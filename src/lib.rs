@@ -99,41 +99,6 @@ fn test_number_of_compounding() {
     assert_eq!(round(test_value, 2), 11.27);
 }
 
-/*  Will implement IRR > later - haven't found the most effective way
-//  Internal Rate of Return (IRR) implementation
-pub fn internal_rate_of_return() {
-    unimplemented!();
-}
-
-#[test]
-fn test_irr() {
-    let test_value = internal_rate_of_return();
-    assert_eq!(test_value, 1000.);
-}
-*/
-
-/*
-//  Payback Period (PP) implementation
-//  How long will it take you to get the money back from your investment
-//  cfs means cash flows > streams of cash :)
-//  This fn assumes that you paid a lumpsum  (negative) at t=0 then getting positive cash flows from the investment
-pub fn payback_period(number_of_periods: f64, cfs: &[f64]) -> f64 {
-    let cash_flows = cfs.clone();
-    let investment = if cash_flows[0].is_sign_negative() { cash_flows[0] } else { - cash_flows[0] };
-    let counter: usize = 1;
-
-    // coming back to this soon
-}
-
-
-#[test]
-fn test_payback_period() {
-    let test_value = payback_period(3., &[-1000.00, 300.00, 500.00, 500.00]);
-
-    assert_eq!(test_value, 3.);
-}
-*/
-
 //  Return On Investment (ROI) implementation
 // no rounding as ROI is super sensitive
 pub fn return_on_investment(earnings: f64, cf0: f64) -> f64 {
@@ -159,29 +124,7 @@ fn test_interest_rate() {
     let test_value = interest_rate(5000., 4000., 4.);
     assert_eq!(round(test_value, 4), 0.0574);
 }
-/*
-//  Amortization implementation
-//  Implement later
-pub fn amortization () -> f64 {
-    unimplementeda!();
-}
 
-fn test_amortization() {
-    assert_eq!( 1, 1);
-}
-*/
-
-//  Profitability Index
-//  cfs > cash flows
-//  There are 2 possible implementations:
-//   1. considering the discount factor 
-//   2. ignoring it
-/*
-pub fn profitability_index(rate: f64, cfs: &[f64]) -> f64 {
-    
-
-}
-*/
 
 //  Rule of 72 (quick and dirty calculation to estimate when an investment will double: https://en.wikipedia.org/wiki/Rule_of_72
 //  Please note that for consistency sake rate is getting passed as a plain not float and not as a percentage (%)
@@ -248,22 +191,3 @@ fn test_effective_annual_rate () {
     assert_eq!(round(test, 4), 0.0512);
 }
 
-/*
-// Compound Annual Growth Rate: CAGR
-pub fn compound_annual_rate(beginning_value: f64, ending_value: f64, number_of_periods: f64) -> f64 {
-    let delta = ending_value / beginning_value;
-
-    delta.powf( 1. / number_of_periods) - 1.
-    // double check fomula ^^^^^^^^^^^^^
-}
-
-#[test]
-fn test_compound_annual_rate() {
-    let test_value = compound_annual_rate(20000.00, 15000.00, 3.);
-    // PLEASE double check formula before
-    assert_eq!( round(test_value, 2) , 12.88);
-}
-*/
-// Find ways to implement `weighted average returns`
-// > figure out which data structure is best for efficient implementation
-// > 

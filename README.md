@@ -39,7 +39,7 @@ fn main() {
 | interest_rate | (future_value: f64, present_value: f64, number_of_compounding: f64) | r |
 | rule_of_72 | (rate: f64) | ... |
 | rule_of_70 | (rate: f64) | ... |
-| leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) | ... |
+| leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) | LR |
 | weighted_cost_of_capital | (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) | WACC |
 | payment | (present_value: f64, number_of_compounding: f64, rate: f64) | PMT |
 | effective_annual_rate | (annual_rate: f64, number_of_compounding: f64) | EAR |
