@@ -36,25 +36,23 @@ fn test_future_value() {
 //  cfs[0] being the cash flow at time 0
 //  refer to, if you're not sure how this works: https://en.wikipedia.org/wiki/Net_present_value#Interpretation_as_integral_transform
 
-/*
-pub fn net_present_value(rate: f64, cfs: &[f64]) {
+pub fn net_present_value(rate: f64, cfs: &[f64]) -> f64 {
     let discount_factor = 1. + rate;
-    let mut npv: f64;
+    let mut npv: f64 = 0.;
 
-    for n in cfs {
-        npv += cfs[n as usize] / discount_factor.powf(n as f64);
+    for n in 0..cfs.len() {
+        npv += cfs[n] / discount_factor.powf(n as f64);
     }
-    
-    round(npv, 2)
+
+    npv
 }
 
 #[test]
 fn test_net_present_value() {
-    let test_npv = net_present_value(0.1, [-1000., 500., 500., 500.]);
+    let test_npv = net_present_value(0.1, &[-1000., 500., 500., 500.]);
 
-    assert_eq!(test_npv, 243.43);
+    assert_eq!(round(test_npv, 2), 243.43);
 }
-*/
 
 /*  Will implement IRR > later - haven't found the most effective way
 //  Internal Rate of Return (IRR) implementation
