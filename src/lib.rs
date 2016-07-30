@@ -76,6 +76,18 @@ fn test_hpr() {
     assert_eq!(test_value, 1.25);
 }
 
+// implementing number of compounding > has the notation of n in formulas
+pub fn number_of_compounding(future_value: f64, present_value: f64, rate: f64) -> f64 {
+    (future_value / present_value).ln() / (1. + rate).ln()
+}
+
+#[test]
+fn test_number_of_compounding() {
+    let test_value = number_of_compounding(5000., 4000., 0.02);
+
+    assert_eq!(round(test_value, 2), 11.27);
+}
+
 /*  Will implement IRR > later - haven't found the most effective way
 //  Internal Rate of Return (IRR) implementation
 pub fn internal_rate_of_return() {
@@ -126,10 +138,9 @@ fn test_roi() {
 
 // implementing interest_rate sometimes called growth rate or discount rate
 pub fn interest_rate(future_value: f64, present_value: f64, number_of_compounding: f64) -> f64 {
-    let holding_period_return = future_value / present_value;
 
     // recip > takes the inverse of a number
-    holding_period_return.powf( number_of_compounding.recip() ) - 1.
+    (future_value / present_value).powf( number_of_compounding.recip() ) - 1.
 }
 
 #[test]
