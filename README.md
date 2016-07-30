@@ -12,14 +12,17 @@ finance = "0.0.0" // preferrably the latest version on crates.io
 ## Examples
 ```rust
 extern crate finance;
-finance::{ present_value, future_value };
+extern crate round;
+
+use round::round;
+use finance::{ present_value, future_value };
 
 fn main() {
-    let test_value = present_value(0.1, 1., 1000.); // 909.09
+    let test_value = round(present_value(0.1, 1., 1000.), 2); // 909.09
 
-    let test_value = future_value(0.1, 1., 1000.);  // 1100.00
+    let test_value = round(future_value(0.1, 1., 1000.), 2);  // 1100.00
     // and so on with the other apis just feed what's expected
-    // particurlarly the exact types
+    // particularly the exact types
 }
 
 ```
@@ -61,7 +64,7 @@ Also some of the function names can be judged as quiet verbose and it is worthit
 
 ## Maintenance
 
-For the forseeable future, I plan to actively manage the repos, so I will follow the salesman motto "If you open it, I will close", meaning that I will fix issues in a speedy matter.
+In the forseeable future, I plan to actively manage the repos, so I will follow the salesman motto "If you open it, I will close", meaning that I will fix issues in a speedy matter.
 
 ## License
 
