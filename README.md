@@ -7,7 +7,7 @@ This crate (Rust library) provides utility functions for the most common operati
 Include this library with the following:
 ```rust
 [dependencies]
-finance = "0.0.0" // preferrably the latest version on crates.io
+finance = "0.0.0" // preferably the latest version on crates.io
 ```
 ## Examples
 ```rust
@@ -27,22 +27,22 @@ fn main() {
 
 ```
 
-## API 
+| API | arguments |
+|-----|--------|
+| present_value | (rate: f64, compounding_periods: f64, future_value: f64) |
+| future_value | (rate: f64, compounding_periods: f64, present_value: f64) |
+| net_present_value | (rate: f64, cfs: &[f64]) |
+| periodic_interest_rate | (annual_percentage_rate: f64, number_of_compounding: f64) |
+| holding_period_return | (profit: f64, cost: f64) |
+| number_of_compounding | (future_value: f64, present_value: f64, rate: f64) |
+| ROI return_on_investment | (earnings: f64, cf0: f64) |
+| interest_rate | (future_value: f64, present_value: f64, number_of_compounding: f64) |
+| rule_of_72 | (rate: f64) |
+| rule_of_70 | (rate: f64) |
+| leverage_ratio | (total_liabilities: f64, total_debts: f64, total_income: f64) |
+| weighted_cost_of_capital | (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) |
 
-1. present_value (rate: f64, compounding_periods: f64, future_value: f64) -> f64
-2. future_value (rate: f64, compounding_periods: f64, present_value: f64) -> f64
-3. net_present_value (
-4. payback period
-5. ROI return_on_investment (earnings: f64, cf0: f64) -> f64
-6. amortization
-7. discount factor
-8. compound_interest
-9. compound_annual_growth_rate (beginning_value: f64, ending_value: f64, number_of_periods: f64) -> f64
-10. leverage_ratio (total_liabilities: f64, total_debts: f64, total_income: f64) -> f64
-11. rule_of_72 (rate: f64) -> f64
-12. rule_of_70 (rate: f64) -> f64
-12. weighted_cost_of_capital (market_value_of_equity: f64, market_value_of_debt: f64, cost_of_equity: f64, cost_of_debt: f64, tax_rate: f64) -> f64
-13. PMT (rate: f64, number_of_payments: f64, principal: f64) -> f64
+Note that all output are of type `f64`, you are free to choose what degree of rounding is right for your project.
 
 > Unless specified the inputs are expected to be floats. Your program will `panic` if you pass integers.
 
