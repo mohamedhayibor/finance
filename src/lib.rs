@@ -54,6 +54,17 @@ fn test_net_present_value() {
     assert_eq!(round(test_npv, 2), 243.43);
 }
 
+pub fn periodic_interest_rate(annual_percentage_rate: f64, number_of_compounding: f64) -> f64 {
+    annual_percentage_rate / number_of_compounding
+}
+
+#[test]
+fn test_periodic_interest_rate() {
+    let test_value = periodic_interest_rate(0.10, 4.);
+
+    assert_eq!(round(test_value, 3), 0.025);
+}
+
 /*  Will implement IRR > later - haven't found the most effective way
 //  Internal Rate of Return (IRR) implementation
 pub fn internal_rate_of_return() {
